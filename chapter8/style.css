@@ -48,3 +48,9 @@ label {
     top: 120px;
     left: 50px;
 }
+.blueBorder{
+    border: thick solid blue;
+}
+.redBorder{
+    border: thick solid red;
+}
