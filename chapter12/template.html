@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script>
+
+        Handlebars.registerHelper('stockvalue', function() {
+            return this.stocklevel > 0 ? 1 : 0 ;
+        })
+
+    </script>
+</head>
+<body>
+
+<script id="flowerTmpl" type="text/x-handlebars-tmpl">
+{{#each contents}}
+   <div class="dcell">
+       <img src="./image/{{product}}.png" alt="{{product}}">
+       <label for="{{product}}">
+           {{name}}:
+       </label>
+       <input type="text" name="{{product}}" data-price="{{price}}" 
+       data-stock="{{stocklevel}}" value={{stockvalue}} required>
+    </div>
+{{/each}}
+</script>
+
+<h1>Jacqui's Flower Shop</h1>
+<form method="post">
+    <div id="oblock">
+        <div class="dtavle">
+            <div id="row1" class="drow"></div>
+            <div id="row2" class="drow"></div>
+        </div>
+    </div>
+    <div id="buttonDIV">
+        <button type="submit">Place Order</button>
+    </div>
+</form>
+
+    <script src="js/json.js"></script>
+
+
+</script>
+
+</body>
+</html>

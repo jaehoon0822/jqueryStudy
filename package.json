@@ -1,0 +1,26 @@
+{
+  "name": "jquery_master_study",
+  "version": "1.0.0",
+  "description": "study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaehoon0822/jqueryStudy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaehoon0822/jqueryStudy/issues"
+  },
+  "homepage": "https://github.com/jaehoon0822/jqueryStudy#readme",
+  "dependencies": {
+    "pug": "^2.0.3",
+    "pug-runtime": "^2.0.4"
+  },
+  "devDependencies": {
+    "handlebars": "^4.1.1"
+  }
+}
