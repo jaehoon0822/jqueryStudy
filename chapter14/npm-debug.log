@@ -1,0 +1,122 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'jquery',
+1 verbose cli   '2.2.4' ]
+2 info using npm@3.10.10
+3 info using node@v6.16.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData jquery
+8 silly fetchPackageMetaData 2.2.4
+9 silly fetchNamedPackageData jquery
+10 silly mapToRegistry name jquery
+11 silly mapToRegistry using default registry
+12 silly mapToRegistry registry https://registry.npmjs.org/
+13 silly mapToRegistry data Result {
+13 silly mapToRegistry   raw: 'jquery',
+13 silly mapToRegistry   scope: null,
+13 silly mapToRegistry   escapedName: 'jquery',
+13 silly mapToRegistry   name: 'jquery',
+13 silly mapToRegistry   rawSpec: '',
+13 silly mapToRegistry   spec: 'latest',
+13 silly mapToRegistry   type: 'tag' }
+14 silly mapToRegistry uri https://registry.npmjs.org/jquery
+15 silly fetchNamedPackageData 2.2.4
+16 silly mapToRegistry name 2.2.4
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry data Result {
+19 silly mapToRegistry   raw: '2.2.4',
+19 silly mapToRegistry   scope: null,
+19 silly mapToRegistry   escapedName: '2.2.4',
+19 silly mapToRegistry   name: '2.2.4',
+19 silly mapToRegistry   rawSpec: '',
+19 silly mapToRegistry   spec: 'latest',
+19 silly mapToRegistry   type: 'tag' }
+20 silly mapToRegistry uri https://registry.npmjs.org/2.2.4
+21 verbose request uri https://registry.npmjs.org/2.2.4
+22 verbose request no auth needed
+23 info attempt registry request try #1 at 11:43:32 PM
+24 verbose request id 489eff08b6e373a9
+25 http request GET https://registry.npmjs.org/2.2.4
+26 verbose get https://registry.npmjs.org/jquery not expired, no request
+27 http 404 https://registry.npmjs.org/2.2.4
+28 verbose headers { date: 'Fri, 22 Mar 2019 14:42:44 GMT',
+28 verbose headers   'content-type': 'application/json',
+28 verbose headers   'content-length': '21',
+28 verbose headers   connection: 'keep-alive',
+28 verbose headers   'set-cookie': [ '__cfduid=d4683aed390cb505f27b4164e4a278b5d1553265763; expires=Sat, 21-Mar-20 14:42:43 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+28 verbose headers   'cf-cache-status': 'MISS',
+28 verbose headers   'cache-control': 'max-age=300',
+28 verbose headers   'cf-ray': '4bb8ef0d1a463a2a-ICN',
+28 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+28 verbose headers   vary: 'accept-encoding, accept',
+28 verbose headers   server: 'cloudflare' }
+29 silly get cb [ 404,
+29 silly get   { date: 'Fri, 22 Mar 2019 14:42:44 GMT',
+29 silly get     'content-type': 'application/json',
+29 silly get     'content-length': '21',
+29 silly get     connection: 'keep-alive',
+29 silly get     'set-cookie': [ '__cfduid=d4683aed390cb505f27b4164e4a278b5d1553265763; expires=Sat, 21-Mar-20 14:42:43 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+29 silly get     'cf-cache-status': 'MISS',
+29 silly get     'cache-control': 'max-age=300',
+29 silly get     'cf-ray': '4bb8ef0d1a463a2a-ICN',
+29 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+29 silly get     vary: 'accept-encoding, accept',
+29 silly get     server: 'cloudflare' } ]
+30 silly fetchPackageMetaData Error: Not found : 2.2.4
+30 silly fetchPackageMetaData     at makeError (/usr/lib/node_modules/npm/node_modules.bundled/npm-registry-client/lib/request.js:302:12)
+30 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/lib/node_modules/npm/node_modules.bundled/npm-registry-client/lib/request.js:290:14)
+30 silly fetchPackageMetaData     at Request._callback (/usr/lib/node_modules/npm/node_modules.bundled/npm-registry-client/lib/request.js:210:14)
+30 silly fetchPackageMetaData     at Request.self.callback (/usr/lib/node_modules/npm/node_modules.bundled/request/request.js:187:22)
+30 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+30 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+30 silly fetchPackageMetaData     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules.bundled/request/request.js:1048:10)
+30 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+30 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+30 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules.bundled/request/request.js:969:12)
+30 silly fetchPackageMetaData  error for 2.2.4 { Error: Not found : 2.2.4
+30 silly fetchPackageMetaData     at makeError (/usr/lib/node_modules/npm/node_modules.bundled/npm-registry-client/lib/request.js:302:12)
+30 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/lib/node_modules/npm/node_modules.bundled/npm-registry-client/lib/request.js:290:14)
+30 silly fetchPackageMetaData     at Request._callback (/usr/lib/node_modules/npm/node_modules.bundled/npm-registry-client/lib/request.js:210:14)
+30 silly fetchPackageMetaData     at Request.self.callback (/usr/lib/node_modules/npm/node_modules.bundled/request/request.js:187:22)
+30 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+30 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+30 silly fetchPackageMetaData     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules.bundled/request/request.js:1048:10)
+30 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+30 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+30 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules.bundled/request/request.js:969:12) pkgid: '2.2.4', statusCode: 404, code: 'E404' }
+31 silly rollbackFailedOptional Starting
+32 silly rollbackFailedOptional Finishing
+33 silly runTopLevelLifecycles Finishing
+34 silly install printInstalled
+35 verbose stack Error: Not found : 2.2.4
+35 verbose stack     at makeError (/usr/lib/node_modules/npm/node_modules.bundled/npm-registry-client/lib/request.js:302:12)
+35 verbose stack     at CachingRegistryClient.<anonymous> (/usr/lib/node_modules/npm/node_modules.bundled/npm-registry-client/lib/request.js:290:14)
+35 verbose stack     at Request._callback (/usr/lib/node_modules/npm/node_modules.bundled/npm-registry-client/lib/request.js:210:14)
+35 verbose stack     at Request.self.callback (/usr/lib/node_modules/npm/node_modules.bundled/request/request.js:187:22)
+35 verbose stack     at emitTwo (events.js:106:13)
+35 verbose stack     at Request.emit (events.js:191:7)
+35 verbose stack     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules.bundled/request/request.js:1048:10)
+35 verbose stack     at emitOne (events.js:96:13)
+35 verbose stack     at Request.emit (events.js:188:7)
+35 verbose stack     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules.bundled/request/request.js:969:12)
+36 verbose statusCode 404
+37 verbose pkgid 2.2.4
+38 verbose cwd /home/jaehoon0822/jqueryMaster/chapter12
+39 error Linux 3.10.0-957.5.1.el7.x86_64
+40 error argv "/usr/bin/node" "/usr/bin/npm" "install" "--save" "jquery" "2.2.4"
+41 error node v6.16.0
+42 error npm  v3.10.10
+43 error code E404
+44 error 404 Not found : 2.2.4
+45 error 404
+46 error 404 '2.2.4' is not in the npm registry.
+47 error 404 You should bug the author to publish it (or use the name yourself!)
+48 error 404 Note that you can also install from a
+49 error 404 tarball, folder, http url, or git url.
+50 verbose exit [ 1, true ]

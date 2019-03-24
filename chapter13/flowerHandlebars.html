@@ -3,14 +3,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Flower</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="js/jquery.validate.js"></script>
     <script src="js/handlebars.js"></script>
-    <script>
-    </script>
+    <style>
+        div.errorMsg { color: red}
+        .invalidElem { border: medium solid red };
+    </style>
 </head>
 <body>
+
+<script>
+</script>
 
 <script id="flowerTmpl" type="text/x-handlebars-tmpl">
 {{#each contents}}
@@ -20,13 +26,13 @@
            {{name}}:
        </label>
        <input type="text" name="{{product}}" data-price="{{price}}" 
-       data-stock="{{stocklevel}}" value={{stockvalue}} required>
+       data-stock="{{stocklevel}}" value="0" required>
     </div>
 {{/each}}
 </script>
-
+    
 <h1>Jacqui's Flower Shop</h1>
-<form method="post" action='http://node.jacquisflowershop.com/orederhyic'>
+<form method="post" action="http://127.0.0.1:8000">
     <div id="oblock">
         <div class="dtable">
             <div id="row1" class="drow"></div>
@@ -38,12 +44,8 @@
     </div>
 </form>
 
-    <script src="js/json.js"></script>
-
-<script>
-
-
-</script>
+    <!-- <script src="js/json.js"></script> -->
+    <script src="json2.js"></script>
 
 </body>
 </html>
