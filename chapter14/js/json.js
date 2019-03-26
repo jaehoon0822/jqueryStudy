@@ -1,13 +1,3 @@
-var data = { 
-    contents: [
-    { name: 'Astor', product: 'astor', stocklevel: '10', price: 2.99 },
-    { name: 'Daffodil', product: 'daffodil', stocklevel: '12', price: 1.99 },
-    { name: 'Rose', product: 'rose', stocklevel: '2', price: 4.99 },
-    { name: 'Peony', product: 'peony', stocklevel: '0', price: 1.50 },
-    { name: 'Primula', product: 'primula', stocklevel: '1', price: 3.12 },
-    { name: 'Snowdrop', product: 'snowdrop', stocklevel: '15', price: 0.99 }
-    ]
-};
 
 var row1 = sliceData( data, 'contents', 0, 3 );
 var row2 = sliceData( data, 'contents', 3 );
