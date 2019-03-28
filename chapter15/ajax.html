@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flower</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/handlebars.js"></script>
+    <script src="js/ajax.js"></script>
+</head>
+<body>
+
+<script id='totalTmpl' type="text/handelbars-tmpl">
+    <div id="totalDIV" style="clear: both; padding: 5px" >
+        <div style="text-align: center">
+            Total Items: <span id=total> {{total}} </span> 
+        </div>
+        <div id="buttonDiv">
+            <button type="submit">Place Order</button>
+        </div>
+    </div> 
+</script>
+
+<script id="flowerTmpl" type="text/x-handlebars-tmpl">
+    <div class="dcell">
+        <img src="image/{{product}}.png" art="{{product}} />
+        <label for="{{product}}">{{name}}</label>
+        <input name="{{product}}" data-price="{{price}}" data-stock="{{stock}}" value="0" required />
+    </div>
+</script>
+
+<h1>Jacqui's Flower Shop</h1>
+
+<form method="post" action="http://127.0.0.1:8000">
+    <div id="oblock">
+        <div class="dtable">
+            <div id="row1" class="drow"></div>
+            <div id="row2" class="drow"></div>
+        </div>
+    </div>
+    <div id="buttonDIV">
+        <button type="submit">Place Order</button>
+    </div>
+</form>
+
+</body>
+</html>
