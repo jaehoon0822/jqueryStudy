@@ -1,3 +1,4 @@
+
 $( document ).ready( function() {
     /** $.ajax  */
     // $.ajax('json/mydata.json', {
@@ -335,17 +336,183 @@ $( document ).ready( function() {
     //     console.log( JSON.stringify( $( 'form' ).serializeArray() ));
     // } );
 
-    var elem;
+    // var elem;
 
-    $.ajax( {
-        async: false,
+    // $.ajax( {
+    //     async: false,
+    //     url: 'flower.html',
+    //     success: function( data, status, jqxhr ) {
+    //        elem = $( data ).filter( 'div' ).addClass( 'dcell');
+    //        elem.slice( 0, 3 ).appendTo( '#row1' );
+    //        elem.slice( 3 ).appendTo( '#row2' );
+    //     }
+    // } )
+
+    // $( 'button' ).click( function( e ) {
+    //     $.ajax( {
+    //         url: 'json/mydata.json',
+    //         ifModified: true,
+    //         success: function( data, status ) {
+
+    //             if ( status == 'success' ) {
+    //                 let row1 = data.slice( 0, 3 ),
+    //                     row2 = data.slice( 3 );
+    //                 $( '#row, #row2' ).children().remove();
+    //                 addEach( '#flowerTmpl', row1, '#row1' );
+    //                 addEach( '#flowerTmpl', row2, '#row2' );
+    //             } else if ( status == 'notmodified' ) {
+    //                 $( 'img' ).css( 'border', 'thick solid green' );
+    //             }
+    //         }
+    //     } );
+    //     e.preventDefault();
+    // } )
+
+    /** 응답 상태의 코드의 처리 */
+    //
+
+    // $.ajax({
+    //     url: 'json/mydata.json',
+    //     statusCode: {
+    //         200: handleSuccessfulRequest,
+    //         404: handleFailedRequest,
+    //         302: handleRedirect
+    //     }
+    // });
+
+    /** dataFilter */
+    // $.ajax({
+    //     url: 'json/mydata.json',
+    //     success: function( data, status, jqxhr ) {
+    //         let row1 = data.slice( 0, 3 ),
+    //             row2 = data.slice( 3 );
+    //         $( '#row1, #row2' ).children().remove();
+    //         addEach( '#flowerTmpl', row1, '#row1' );
+    //         addEach( '#flowerTmpl', row2, '#row2' );
+    //     },
+    //     dataType: 'json',
+    //     dataFilter: function( data, dataType ) {
+    //         if ( dataType == 'json' ) {
+    //             let filteredData = $.parseJSON( data );
+    //             filteredData.shift();
+    //             return JSON.stringify( filteredData.reverse() );
+    //         } else {
+    //             return data;
+    //         } 
+    //     }
+    // })
+
+    /** 데이터 변환의 관리 */
+    //
+    // jquery 는 JOSN data 를 받으면, row JSON 문자열이 아닌,
+    // javascript 객체를 success 함수에 넘겨준다.
+    // 이런 데이터 변환 작업은 converters 설정을 통해 제어할 수 있다.
+    //
+
+    // $.ajax({
+    //     url: 'flower.html',
+    //     success: function( data, status, jqxhr ) {
+    //         let elem = data.filter( 'div' ).addClass( 'dcell' );
+    //         elem.slice( 0, 3 ).appendTo( '#row1' );
+    //         elem.slice( 3 ).appendTo( '#row2' );
+    //     },
+    //     converters: {
+    //         'text html': function( data ) {
+    //             return $( data );
+    //         }
+    //     }
+    // });
+
+
+    /** Ajax 요청의 설정 및 필터링 */
+    //
+    // 이제 ajax method 와 사용할 수 있는 설정을 살펴봤으니
+    // 설정 요청을 간편하게 할 수 있게 제이쿼리가 제공하는 추가 메소드를 
+    // 알아보자.
+
+    /** 기본 설정의 정의 */
+    //
+    // ajaxSetup method 는 모든 ajax 요청에 사용할 설정을 지정하게 해준다.
+    // 이 메소드를 사용하면 각 요청마다 같은 설정을 정의하지 않아도 된다.
+    //
+
+    // $.ajaxSetup({
+    //     timeout: 15000,
+    //     global: false,
+    //     error: function( jqxhr, status, errMsg ) {
+    //         $( '<div class="error"> Status: ' + jqxhr.status + '<br/>errorMessage: ' + errMsg )
+    //             .insertAfter( 'h1' );
+    //     },
+    //     converters: {
+    //         'text html': function( data, dataType ) {
+    //             return $( data );
+    //         }
+    //     }
+    // });
+
+    // $.ajax({
+    //     url: 'flower.html',
+    //     success: function( data, status, jqxhr ) {
+    //         let elem =  data .filter( 'div' ).addClass( 'dcell' );
+    //             elem.slice( 0, 3 ).appendTo( '#row1' ),
+    //             elem.slice( 3 ).appendTo( '#row2' );
+    //     }
+    // });
+    //
+
+    /** 요청 필터링 */
+    // ajaxPrefilter 를 이용하여 ajax 요청에 적용할 기본 설정을 정의한다.
+
+    $.ajaxSetup({
+       timeout: 15000,
+       global: false,
+       error: function( jqxhr, status, errMsg ) {
+           $( '<div class="error">')
+                .text( 'status: ' + status + ' Error: ' + errMsg );
+       },
+       converters: {
+           'text html': function( data ) {
+               return $( data );
+           }
+       }
+    });
+
+    $.ajaxPrefilter( 'json html', function( settings, originalSettings, jqxhr ) {
+        if ( originalSettings.dataType == 'html' ) {
+            settings.timeout = 2000;
+        } else {
+            jqxhr.abort();
+        }
+    } );
+
+    $.ajax({
         url: 'flower.html',
         success: function( data, status, jqxhr ) {
-           elem = $( data ).filter( 'div' ).addClass( 'dcell');
-           elem.slice( 0, 3 ).appendTo( '#row1' );
-           elem.slice( 3 ).appendTo( '#row2' );
+            let elem = data.filter( 'div' ).addClass( 'dcell' );
+            elem.slice( 0, 3 ).appendTo( '#row1' );
+            elem.slice( 3 ).appendTo( '#row2' );
         }
-    } )
+    });
+
+
+    function handleSuccessfulRequest( data, status, jqxhr ) { 
+        let row1 = data.slice( 0, 3 ),
+            row2 = data.slice( 3 );
+
+        $( '#row1, #row2' ).children().remove();
+        addEach( '#flowerTmpl', row1, '#row1' );
+        addEach( '#flowerTmpl', row2, '#row2' );
+        
+    }
+
+    function handleFailedRequest( jqxhr, status, errorMsg ) {
+        $( '<div class="error"> Code: ' + jqxhr.status + '<br>' + 'Message: ' + errorMsg )
+            .insertAfter( 'h1' );
+    }
+
+    function handleRedirect( jqxhr, status ) {
+        console.log( 'Recirect :' + jqxhr.status );
+    }
 
     function displayMessage( msg ) {
         $( '#info' )
@@ -417,7 +584,6 @@ $( document ).ready( function() {
                 .appendTo('#row1').show();
         }
         $('#buttonDIV, #totalDiv').remove();
-        console.log( data );
         $( addHandlebars('#totalTmpl') ).appendTo( 'body' );
     };
 
@@ -430,6 +596,7 @@ $( document ).ready( function() {
 
     function addEach( add, data, addToTarget ) {
         for ( let i = 0; i < data.length; i += 1 ) {
+            console.log( data[ i ] );
             $( addHandlebars( add, data[ i ]) ).appendTo( addToTarget );
         }
     };
